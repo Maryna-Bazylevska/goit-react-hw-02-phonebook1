@@ -4,13 +4,7 @@ const Filter = ({ value, onChange }) => (
   <div className={css.filter}>
     <label>
       <p className={css.text}>Find contacts by name</p>
-      <input
-        type="text"
-        name="name"
-        value={value}
-        className={css.input}
-        onChange={onChange}
-      />
+      <input type="text" value={value} onChange={onChange} />
     </label>
   </div>
 );

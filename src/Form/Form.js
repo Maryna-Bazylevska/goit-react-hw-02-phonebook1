@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 import css from "./Form.module.css";
+import shortid from "shortid";
 class Form extends Component {
   state = {
     name: "",
     number: "",
   };
+  nameInputId = shortid.generate();
+  numberInputId = shortid.generate();
   handleChange = (e) => {
     const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
   };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit(this.state);
     this.reset();
   };
+
   reset = () => {
-    this.setState({
-      name: "",
-      number: "",
-    });
+    this.setState({ name: "", number: "" });
   };
 
   render() {
@@ -37,6 +39,7 @@ class Form extends Component {
               required
               className={css.input}
               onChange={this.handleChange}
+              id={this.nameInputId}
             />
           </label>
           <label>
@@ -50,6 +53,7 @@ class Form extends Component {
               required
               className={css.input}
               onChange={this.handleChange}
+              id={this.numberInputId}
             />
           </label>
 
